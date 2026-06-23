@@ -3,6 +3,8 @@ layout: home
 title: Home
 ---
 
-# My Projects
+# Hello World
 
-Below are my engineering projects:
+Welcome to my Engineering Portfolio.
+
+I will be adding projects and editing this website soon.
