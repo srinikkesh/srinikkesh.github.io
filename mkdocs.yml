@@ -1,0 +1,31 @@
+site_name: Srinikkesh Senthilkumar - Engineering Portfolio
+site_url: https://srinikkesh.github.io/
+site_author: Srinikkesh Senthilkumar
+repo_name: srinikkesh/srinikkesh.github.io
+repo_url: https://github.com/srinikkesh/srinikkesh.github.io
+
+theme:
+  name: material
+  palette:
+    # Light/Dark Mode Toggle
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - navigation.tabs
+    - navigation.footer
+
+nav:
+  - Home: index.md
+  - Projects: projects.md
+  - Notes: notes.md
+
+plugins:
+  - search
