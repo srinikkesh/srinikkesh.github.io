@@ -18,14 +18,17 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Force Node 24 to avoid deprecation failures
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5  # Updated to v5
+        uses: actions/checkout@v5
 
       - name: Setup Python
-        uses: actions/setup-python@v6  # Updated to v6 for Node 24 compatibility
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.12'  # Explicitly set a stable version
+          python-version: '3.12'
 
       - name: Install Dependencies
         run: |
@@ -36,7 +39,7 @@ jobs:
         run: mkdocs build --clean
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5 # Ensure this is the latest v5
+        uses: actions/configure-pages@v5
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
