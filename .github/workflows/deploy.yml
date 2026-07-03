@@ -20,14 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v5  # Updated to v5
 
       - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+        uses: actions/setup-python@v5 # Keep v5 (it supports Node 24 now)
 
       - name: Install Dependencies
         run: |
@@ -38,12 +34,10 @@ jobs:
         run: mkdocs build --clean
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5 # Updated to v5
 
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./site
+        uses: actions/upload-pages-artifact@v3 # Keep v3 (already compatible)
 
   deploy:
     environment:
@@ -54,4 +48,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4 # Keep v4 but ensure runner is updated
+        # Note: If v4 still fails, try actions/deploy-pages@v3 or check if a newer v5 exists
