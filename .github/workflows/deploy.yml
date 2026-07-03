@@ -35,16 +35,16 @@ jobs:
       - name: Build Site
         run: mkdocs build --clean
 
-      - name: Debug: List Files (Optional but helpful)
-        run: ls -la  # Verifies the 'site' folder exists before uploading
+      - name: Verify Build (Debug)
+        run: ls -la  # Confirms 'site' folder exists
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload Artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './site'  # Explicitly define the path
+          path: './site'  # Explicitly point to MkDocs output folder
 
   deploy:
     environment:
