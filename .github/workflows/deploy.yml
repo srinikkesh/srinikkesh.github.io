@@ -20,12 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v5  # Updated to v5
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6  # Updated to v6 for Node 24 compatibility
         with:
-          python-version: '3.x'
+          python-version: '3.12'  # Explicitly set a stable version
 
       - name: Install Dependencies
         run: |
@@ -36,7 +36,7 @@ jobs:
         run: mkdocs build --clean
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v5 # Ensure this is the latest v5
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
@@ -50,5 +50,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # Keep v4 but ensure runner is updated
-        # Note: If v4 still fails, try actions/deploy-pages@v3 or check if a newer v5 exists
+        uses: actions/deploy-pages@v4
